@@ -28,7 +28,7 @@ function App() {
               </p>
               <p>
                 I enjoy translating requirements into clear technical systems: scalable MVC
-                modules, governed data models, validation rules, workflows, and interfaces that
+                modules, validation rules, workflows, and interfaces that
                 teams can trust.
               </p>
             </div>
