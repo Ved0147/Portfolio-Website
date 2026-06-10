@@ -7,6 +7,8 @@ import { Hero } from "./components/Hero";
 import { ProjectSection } from "./components/ProjectSection";
 import { SectionHeading } from "./components/SectionHeading";
 import { SkillsSection } from "./components/SkillsSection";
+//import  AIAssistant from "./components/AIAssistant";
+import AIAssistantWidget from "./components/AIAssistantWidget";
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
         <ProjectSection />
         <EducationSection />
         <ContactSection />
+        <AIAssistantWidget />
       </main>
       <Footer />
     </>

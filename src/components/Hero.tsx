@@ -1,4 +1,5 @@
 import { ArrowDown, Download, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const metrics = [
   { value: "1.5+", label: "Years of experience" },
@@ -7,6 +8,25 @@ const metrics = [
 ];
 
 export function Hero() {
+  const [visitors, setVisitors] = useState(0);
+ useEffect(() => {
+
+    const visited = localStorage.getItem("visited");
+
+    if (!visited) {
+
+        fetch("http://localhost:5133/api/visitor");
+
+        localStorage.setItem("visited", "true");
+    }
+
+    fetch("http://localhost:5133/api/visitor/count")
+        .then(res => res.json())
+        .then(data => {
+            setVisitors(data.visitors);
+        });
+
+}, []);
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
       <img
@@ -22,7 +42,7 @@ export function Hero() {
         <div className="hero-copy">
           <p className="availability">
             <span aria-hidden="true" />
-            Open to backend and data opportunities
+            Open to backend and data opportunities | <strong>{visitors}</strong> visitors
           </p>
           <p className="eyebrow">Software Developer · Surat, India</p>
           <h1 id="hero-title">
