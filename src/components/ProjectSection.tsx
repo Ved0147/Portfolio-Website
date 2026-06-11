@@ -1,48 +1,99 @@
-import { ArrowUpRight, BookOpen, Database, LockKeyhole, ShoppingCart } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
+import { useEffect, useState } from "react";
 
-const features = [
-  { icon: LockKeyhole, label: "Secure authentication" },
-  { icon: ShoppingCart, label: "Cart workflow" },
-  { icon: Database, label: "Dynamic MySQL listings" },
-  { icon: BookOpen, label: "Admin book management" },
-];
-
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  githubUrl: string;
+  featured: boolean;
+  order: number;
+  type: string;
+  technologies: string[];
+  features: string[];
+}
 export function ProjectSection() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  useEffect(() => {
+  fetch("http://localhost:5133/api/projects")
+    .then(res => res.json())
+    .then(data => setProjects(data));
+}, []);
   return (
-    <section className="section section-dark" id="projects">
+    <section
+      className="section section-dark"
+      id="projects"
+    >
       <div className="container">
+
         <SectionHeading
-          eyebrow="Selected Project"
-          title="EBookStore"
-          description="An Amazon-style digital bookstore designed around secure user and admin workflows."
+          eyebrow="Projects"
+          title="Featured Work"
+          description="Projects showcasing backend development, cloud technologies and modern web applications."
         />
-        <article className="project-feature">
-          <div className="project-copy">
-            <p className="project-type">Full-stack web application</p>
-            <h3>From browsing to checkout, built as one cohesive MVC experience.</h3>
-            <p>
-              Designed and developed with C#, .NET MVC, MySQL, HTML, CSS, and JavaScript.
-              The application includes user login, dynamic catalog content, cart functionality,
-              secure authentication, and an administration dashboard.
-            </p>
-            <div className="tag-list project-tags">
-              {["C#", ".NET MVC", "MySQL", "JavaScript"].map((item) => <span key={item}>{item}</span>)}
-            </div>
-            <div className="project-status" role="status">
-              <ArrowUpRight size={18} aria-hidden="true" />
-              Case study and repository link coming soon
-            </div>
-          </div>
-          <div className="feature-list">
-            {features.map(({ icon: Icon, label }) => (
-              <div className="feature-item" key={label}>
-                <Icon aria-hidden="true" />
-                <span>{label}</span>
+
+        <div className="projects-grid">
+
+          {projects.map((project) => (
+            <article
+              className="project-card"
+              key={project.title}
+            >
+              <p className="project-type">
+                {project.type}
+              </p>
+
+              <h3>
+                {project.title}
+              </h3>
+
+              <p>
+                {project.description}
+              </p>
+
+              <div className="tag-list project-tags">
+                {project.technologies.map(
+                  (tech) => (
+                    <span key={tech}>
+                      {tech}
+                    </span>
+                  )
+                )}
               </div>
-            ))}
-          </div>
-        </article>
+
+              <div className="feature-list">
+
+                {project.features.map(
+                  (feature) => (
+                    <div
+                      className="feature-item"
+                      key={feature}
+                    >
+                      {feature}
+                    </div>
+                  )
+                )}
+
+              </div>
+
+              {/* <div
+                className="project-status"
+                role="status"
+              >
+                <ArrowUpRight
+                  size={18}
+                  aria-hidden="true"
+                />
+
+                View Project
+              </div> */}
+
+            </article>
+          ))}
+
+        </div>
+
       </div>
     </section>
   );

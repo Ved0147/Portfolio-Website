@@ -1,8 +1,8 @@
-import { Download, Menu, X } from "lucide-react";
+import { Eye, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navigation } from "../data/portfolio";
 
-export function Header() {
+export function Header({ refreshAnalytics }: { refreshAnalytics: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,6 +22,15 @@ export function Header() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
 
+  const handleResumeDownload = async () => {
+    const response = await fetch(
+      "http://localhost:5133/api/resume"
+    );
+    const data = await response.json();
+    window.open(data.url, "_blank");
+    fetch("http://localhost:5133/api/resume/download",{ method: "POST" });
+    await refreshAnalytics();
+  };
   return (
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <div className="header-inner">
@@ -54,8 +63,8 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a className="nav-resume" href="/assets/Ved_Vaiwala_Resume.pdf" download>
-            <Download size={17} aria-hidden="true" />
+          <a className="nav-resume" onClick={handleResumeDownload}>
+            <Eye size={18} aria-hidden="true" />
             Resume
           </a>
         </nav>

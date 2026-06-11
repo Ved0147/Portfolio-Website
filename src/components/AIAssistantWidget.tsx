@@ -4,8 +4,10 @@ interface Message {
   sender: "user" | "bot";
   text: string;
 }
-
-export default function AIAssistantWidget() {
+interface AIAssistantWidgetProps {
+  refreshAnalytics: () => void;
+}
+export default function AIAssistantWidget({ refreshAnalytics }: AIAssistantWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
@@ -56,6 +58,7 @@ export default function AIAssistantWidget() {
           text: data.answer
         }
       ]);
+      await refreshAnalytics();
     } catch {
       setMessages((prev) => [
         ...prev,

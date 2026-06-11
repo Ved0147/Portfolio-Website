@@ -80,3 +80,91 @@ export const education = [
     detail: "CGPA 7.2 / 10",
   },
 ] as const;
+export const project = [
+  {
+    title: "AI Resume Assistant",
+    type: "Cloud + AI Project",
+    description:
+      "Firestore-powered chatbot that answers recruiter questions about skills, projects and experience.",
+
+    technologies: [
+      "React",
+      "TypeScript",
+      "ASP.NET Core",
+      "Firestore"
+    ],
+
+    features: [
+      "Chatbot UI",
+      "Dynamic Firestore data",
+      "Recruiter Q&A",
+      "Cloud integration"
+    ]
+  },
+
+  {
+    title: "Portfolio Website",
+    type: "Cloud Hosted Portfolio",
+
+    description:
+      "Personal portfolio website hosted on Google Cloud Storage with modern UI and analytics.",
+
+    technologies: [
+      "React",
+      "TypeScript",
+      "Google Cloud Storage"
+    ],
+
+    features: [
+      "Responsive design",
+      "Cloud hosting",
+      "Resume download",
+      "Project showcase"
+    ]
+  },
+
+  {
+    title: "Visitor Counter API",
+    type: "Backend Cloud Project",
+
+    description:
+      "ASP.NET Core API integrated with Firestore that powers the live visitor analytics displayed on this portfolio.",
+
+    technologies: [
+      "ASP.NET Core",
+      "Firestore",
+      "Google Cloud"
+    ],
+
+    features: [
+      "Realtime analytics",
+      "Firestore integration",
+      "REST API",
+      "Cloud authentication"
+    ]
+  },
+
+  {
+    title: "EBookStore",
+
+    type: "Full Stack Application",
+
+    description:
+      "Amazon-style digital bookstore with authentication, shopping cart and admin workflows.",
+
+    technologies: [
+      "C#",
+      ".NET MVC",
+      "MySQL",
+      "JavaScript"
+    ],
+
+    features: [
+      "Authentication",
+      "Shopping cart",
+      "Admin dashboard",
+      "Dynamic catalog"
+    ]
+  }
+];
+

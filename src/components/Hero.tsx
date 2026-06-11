@@ -1,4 +1,4 @@
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, Eye, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const metrics = [
@@ -6,27 +6,36 @@ const metrics = [
   { value: "ASP.NET", label: "Backend specialization" },
   { value: "PIM / MDM", label: "Enterprise data focus" },
 ];
+export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
+  const handleResumeDownload = async () => {
+  const response = await fetch(
+    "http://localhost:5133/api/resume"
+  );
+  const data = await response.json();
 
-export function Hero() {
+  window.open(data.url, "_blank");
+  fetch("http://localhost:5133/api/resume/download", { method: "POST" });
+  await refreshAnalytics();
+};
   const [visitors, setVisitors] = useState(0);
- useEffect(() => {
+  useEffect(() => {
 
     const visited = localStorage.getItem("visited");
 
     if (!visited) {
 
-        fetch("http://localhost:5133/api/visitor");
+      fetch("http://localhost:5133/api/visitor");
 
-        localStorage.setItem("visited", "true");
+      localStorage.setItem("visited", "true");
     }
 
     fetch("http://localhost:5133/api/visitor/count")
-        .then(res => res.json())
-        .then(data => {
-            setVisitors(data.visitors);
-        });
-
-}, []);
+      .then(res => res.json())
+      .then(data => {
+        setVisitors(data.visitors);
+      });
+    
+  }, []);
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
       <img
@@ -42,7 +51,7 @@ export function Hero() {
         <div className="hero-copy">
           <p className="availability">
             <span aria-hidden="true" />
-            Open to backend and data opportunities | <strong>{visitors}</strong> visitors
+            Open to backend and data opportunities
           </p>
           <p className="eyebrow">Software Developer · Surat, India</p>
           <h1 id="hero-title">
@@ -58,9 +67,9 @@ export function Hero() {
               <Mail size={18} aria-hidden="true" />
               Let’s talk
             </a>
-            <a className="button button-secondary" href="/assets/Ved_Vaiwala_Resume.pdf" download>
-              <Download size={18} aria-hidden="true" />
-              Download resume
+            <a className="button button-secondary" onClick={handleResumeDownload}>
+              <Eye size={18} aria-hidden="true" />
+              Resume
             </a>
           </div>
         </div>
