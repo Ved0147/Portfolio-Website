@@ -1,7 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { useEffect, useState } from "react";
-
+interface ProjectSectionProps {
+  analytics: {
+    visitors: number;
+    aiChats: number;
+    resumeDownloads: number;
+  };
+}
 interface Project {
   id: string;
   title: string;
@@ -13,13 +19,16 @@ interface Project {
   technologies: string[];
   features: string[];
 }
-export function ProjectSection() {
+export function ProjectSection({
+  analytics
+}: ProjectSectionProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
-  fetch("http://localhost:5133/api/projects")
-    .then(res => res.json())
-    .then(data => setProjects(data));
-}, []);
+    fetch("https://portfolio-api-58436098425.asia-south1.run.app/api/projects")
+    // fetch("http://localhost:5133/api/projects")
+      .then(res => res.json())
+      .then(data => setProjects(data));
+  }, []);
   return (
     <section
       className="section section-dark"
@@ -61,9 +70,7 @@ export function ProjectSection() {
                   )
                 )}
               </div>
-
               <div className="feature-list">
-
                 {project.features.map(
                   (feature) => (
                     <div
@@ -76,7 +83,41 @@ export function ProjectSection() {
                 )}
 
               </div>
+              {
+                
+                project.id === "portfolio" ? (
+                  <div className="project-analytics">
 
+                    <h3>Live Usage</h3>
+                    <div className="project-stats">
+
+                      <div className="project-stat">
+                        <strong>
+                          {analytics.visitors}
+                        </strong>
+                        <span>Website Visitors</span>
+                      </div>
+
+                      <div className="project-stat">
+                        <strong>
+                          {analytics.aiChats}
+                        </strong>
+                        <span>AI Chats</span>
+                      </div>
+
+                      <div className="project-stat">
+                        <strong>
+                          {analytics.resumeDownloads}
+                        </strong>
+                        <span>Resume Visitors</span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                ): null
+              }
               {/* <div
                 className="project-status"
                 role="status"

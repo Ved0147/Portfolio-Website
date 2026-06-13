@@ -24,7 +24,7 @@ function App() {
   const refreshAnalytics = async () => {
     const response =
       await fetch(
-        "http://localhost:5133/api/analytics"
+        "https://portfolio-api-58436098425.asia-south1.run.app/api/analytics"
       );
 
     const data =
@@ -44,7 +44,6 @@ function App() {
       <main id="main-content">
 
         <Hero refreshAnalytics={refreshAnalytics} />
-
         <section
           className="section about-section"
           id="about"
@@ -67,6 +66,9 @@ function App() {
                 scalable MVC modules, validation rules, workflows, and interfaces that
                 teams can trust.
               </p>
+              <p>
+                Alongside backend development, I'm actively building expertise in cloud technologies and DevOps through hands-on projects involving Google Cloud, containerization, CI/CD, and modern deployment practices
+            </p>
             </div>
 
           </div>
@@ -74,10 +76,8 @@ function App() {
 
         <ExperienceSection />
         <SkillsSection />
-
-        <Analytics analytics={analytics} />
-
-        <ProjectSection />
+        <ProjectSection analytics={analytics}/>
+        {/* <Analytics /> */}
         <EducationSection />
         <ContactSection />
 

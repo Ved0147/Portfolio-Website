@@ -1,6 +1,6 @@
 import { ArrowDown, Eye, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
-
+import heroWorkspace from "../assets/hero-workspace.webp";
 const metrics = [
   { value: "1.5+", label: "Years of experience" },
   { value: "ASP.NET", label: "Backend specialization" },
@@ -9,38 +9,19 @@ const metrics = [
 export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
   const handleResumeDownload = async () => {
   const response = await fetch(
-    "http://localhost:5133/api/resume"
+    "https://portfolio-api-58436098425.asia-south1.run.app/api/resume"
   );
   const data = await response.json();
 
   window.open(data.url, "_blank");
-  fetch("http://localhost:5133/api/resume/download", { method: "POST" });
+  fetch("https://portfolio-api-58436098425.asia-south1.run.app/api/resume/download", { method: "POST" });
   await refreshAnalytics();
 };
-  const [visitors, setVisitors] = useState(0);
-  useEffect(() => {
-
-    const visited = localStorage.getItem("visited");
-
-    if (!visited) {
-
-      fetch("http://localhost:5133/api/visitor");
-
-      localStorage.setItem("visited", "true");
-    }
-
-    fetch("http://localhost:5133/api/visitor/count")
-      .then(res => res.json())
-      .then(data => {
-        setVisitors(data.visitors);
-      });
-    
-  }, []);
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
       <img
         className="hero-image"
-        src="/assets/hero-workspace.webp"
+        src={heroWorkspace}
         width="1600"
         height="822"
         alt=""

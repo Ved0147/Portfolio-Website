@@ -49,20 +49,47 @@ export const experiences: Experience[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Backend",
-    skills: ["C#", "ASP.NET Core", ".NET MVC", "RESTful APIs", "MVC architecture"],
+    title: "Backend Engineering",
+    skills: [
+      "C#",
+      "ASP.NET Core",
+      ".NET MVC",
+      "REST APIs",
+      "CQRS",
+      "Dependency Injection"
+    ],
   },
   {
-    title: "Data",
-    skills: ["MySQL", "SQL Server", "Data models", "Validation logic", "PIM / MDM"],
+    title: "Data & Databases",
+    skills: [
+      "SQL Server",
+      "MySQL",
+      "Firestore",
+      "Database Design",
+      "Data Modeling",
+      "Query Optimization"
+    ],
   },
   {
-    title: "Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "Responsive UI"],
+    title: "Cloud & DevOps",
+    skills: [
+    "Git",
+    "GitHub",
+    "Google Cloud Storage",
+    "Firestore",
+    "Cloud Run"
+  ],
   },
   {
-    title: "Delivery",
-    skills: ["Git", "Postman", "Syndigo", "Agile", "Requirements analysis"],
+    title: "Frontend & Tools",
+    skills: [
+      "React",
+      "TypeScript",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Postman"
+    ],
   },
 ];
 

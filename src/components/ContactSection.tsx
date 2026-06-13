@@ -31,7 +31,7 @@ export function ContactSection() {
     const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
 
     window.setTimeout(() => {
-      window.location.href = `mailto:vedvaiwala147@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:ved.vaiwala.tech@gmail.com?subject=${subject}&body=${body}`;
       setStatus("success");
     }, 450);
   };
@@ -43,13 +43,12 @@ export function ContactSection() {
           <p className="eyebrow">Contact</p>
           <h2>Let’s build reliable software together.</h2>
           <p>
-            I’m open to backend, data engineering, PIM/MDM, and enterprise implementation
-            opportunities in India and internationally.
+            I'm open to backend engineering, enterprise software implementation, and cloud technology opportunities, with a strong interest in building scalable, data-driven solutions.
           </p>
           <div className="contact-details">
-            <a href="mailto:vedvaiwala147@gmail.com">
+            <a href="mailto:ved.vaiwala.tech@gmail.com">
               <Mail aria-hidden="true" />
-              <span><small>Email</small>vedvaiwala147@gmail.com</span>
+              <span><small>Email</small>ved.vaiwala.tech@gmail.com</span>
             </a>
             <a href="tel:+917600363063">
               <Phone aria-hidden="true" />

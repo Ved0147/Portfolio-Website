@@ -44,7 +44,7 @@ export default function AIAssistant() {
         try {
             const response =
                 await fetch(
-                    "https://localhost:7068/api/ai",
+                    "https://portfolio-api-58436098425.asia-south1.run.app/api/ai",
                     {
                         method: "POST",
                         headers: {
