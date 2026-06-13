@@ -32,7 +32,7 @@ export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
         <div className="hero-copy">
           <p className="availability">
             <span aria-hidden="true" />
-            Open to backend and data opportunities
+            Open to backend and data
           </p>
           <p className="eyebrow">Software Developer · Surat, India</p>
           <h1 id="hero-title">
