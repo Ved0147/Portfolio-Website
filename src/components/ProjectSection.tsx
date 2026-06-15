@@ -14,11 +14,11 @@ interface Project {
   title: string;
   description: string;
   githubUrl: string;
-  featured: boolean;
+  //featured: boolean;
   order: number;
   type: string;
   technologies: string[];
-  features: string[];
+  featured: string[];
 }
 export function ProjectSection({
   analytics
@@ -72,7 +72,7 @@ export function ProjectSection({
                 )}
               </div>
               <div className="feature-list">
-                {project.features.map(
+                {project.featured.map(
                   (feature) => (
                     <div
                       className="feature-item"
