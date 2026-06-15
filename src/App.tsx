@@ -10,6 +10,7 @@ import { SkillsSection } from "./components/SkillsSection";
 //import  AIAssistant from "./components/AIAssistant";
 import AIAssistantWidget from "./components/AIAssistantWidget";
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "./config/api";
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
   const refreshAnalytics = async () => {
     const response =
       await fetch(
-        "https://portfolio-api-58436098425.asia-south1.run.app/api/analytics"
+        `${API_BASE_URL}/analytics`
       );
 
     const data =
