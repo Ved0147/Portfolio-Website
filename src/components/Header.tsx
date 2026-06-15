@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { navigation } from "../data/portfolio";
 import { API_BASE_URL } from "../config/api";
 
-export function Header({ refreshAnalytics }: { refreshAnalytics: () => void }) {
+export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,7 +30,7 @@ export function Header({ refreshAnalytics }: { refreshAnalytics: () => void }) {
     const data = await response.json();
     window.open(data.url, "_blank");
     fetch(`${API_BASE_URL}/resume/download`, { method: "POST" });
-    await refreshAnalytics();
+    // await refreshAnalytics();
   };
   return (
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>

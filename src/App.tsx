@@ -7,7 +7,6 @@ import { Hero } from "./components/Hero";
 import { ProjectSection } from "./components/ProjectSection";
 import { SectionHeading } from "./components/SectionHeading";
 import { SkillsSection } from "./components/SkillsSection";
-//import  AIAssistant from "./components/AIAssistant";
 import AIAssistantWidget from "./components/AIAssistantWidget";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "./config/api";
@@ -39,11 +38,11 @@ function App() {
 
   return (
     <>
-      <Header refreshAnalytics={refreshAnalytics} />
+      <Header  />
 
       <main id="main-content">
 
-        <Hero refreshAnalytics={refreshAnalytics} />
+        <Hero  />
         <section
           className="section about-section"
           id="about"
@@ -77,16 +76,13 @@ function App() {
         <ExperienceSection />
         <SkillsSection />
         <ProjectSection analytics={analytics}/>
-        {/* <Analytics /> */}
         <EducationSection />
         <ContactSection />
 
-        <AIAssistantWidget
-          refreshAnalytics={refreshAnalytics}
-        />
+        <AIAssistantWidget/>
 
       </main>
-
+ 
       <Footer />
     </>
   );

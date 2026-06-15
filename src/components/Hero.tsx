@@ -7,7 +7,7 @@ const metrics = [
   { value: "ASP.NET", label: "Backend specialization" },
   { value: "Cloud & DevOps", label: "CI/CD & Automation" },
 ];
-export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
+export function Hero() {
   const handleResumeDownload = async () => {
   const response = await fetch(
     `${API_BASE_URL}/resume`
@@ -16,7 +16,7 @@ export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
 
   window.open(data.url, "_blank");
   fetch(`${API_BASE_URL}/resume/download`, { method: "POST" });
-  await refreshAnalytics();
+  // await refreshAnalytics();
 };
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
