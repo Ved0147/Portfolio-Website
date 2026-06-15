@@ -44,7 +44,7 @@ export default function AIAssistantWidget({ refreshAnalytics }: AIAssistantWidge
 
     try {
       const response = await fetch(
-        "https://portfolio-api-58436098425.asia-south1.run.app/api/ai",
+        "https://portfolio-api-349456946670.asia-south1.run.app/api/ai",//58436098425
         {
           method: "POST",
           headers: {
