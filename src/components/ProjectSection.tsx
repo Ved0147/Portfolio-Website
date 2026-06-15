@@ -13,7 +13,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  githubUrl: string[];
+  //githubUrl: string[];
   //featured: boolean;
   order: number;
   type: string;
