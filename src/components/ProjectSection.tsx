@@ -13,7 +13,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  githubUrl: string;
+  githubUrl: string[];
   //featured: boolean;
   order: number;
   type: string;
@@ -119,7 +119,7 @@ export function ProjectSection({
 
                 ): null
               }
-              {/* <div
+              <div
                 className="project-status"
                 role="status"
               >
@@ -127,9 +127,20 @@ export function ProjectSection({
                   size={18}
                   aria-hidden="true"
                 />
-
-                View Project
-              </div> */}
+                 {project.githubUrl.map(
+                  (url) => (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={url}
+                    >
+                      Github Repository
+                    </a>
+                  ))
+                }
+                Github URL 
+              </div>
 
             </article>
           ))}

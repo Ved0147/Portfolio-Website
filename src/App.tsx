@@ -31,6 +31,17 @@ function App() {
 
     setAnalytics(data);
   };
+  useEffect(() => {
+    const initialize = async () => {
+      await fetch(
+        `${API_BASE_URL}/visitor`
+      );
+
+      await refreshAnalytics();
+    };
+
+    initialize();
+  }, []);
 
   useEffect(() => {
     refreshAnalytics();
@@ -38,11 +49,11 @@ function App() {
 
   return (
     <>
-      <Header  />
+      <Header />
 
       <main id="main-content">
 
-        <Hero  />
+        <Hero />
         <section
           className="section about-section"
           id="about"
@@ -67,7 +78,7 @@ function App() {
               </p>
               <p>
                 Alongside backend development, I'm actively building expertise in cloud technologies and DevOps through hands-on projects involving Google Cloud, containerization, CI/CD, and modern deployment practices
-            </p>
+              </p>
             </div>
 
           </div>
@@ -75,14 +86,14 @@ function App() {
 
         <ExperienceSection />
         <SkillsSection />
-        <ProjectSection analytics={analytics}/>
+        <ProjectSection analytics={analytics} />
         <EducationSection />
         <ContactSection />
 
-        <AIAssistantWidget/>
+        <AIAssistantWidget />
 
       </main>
- 
+
       <Footer />
     </>
   );
