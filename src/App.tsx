@@ -9,7 +9,6 @@ import { SectionHeading } from "./components/SectionHeading";
 import { SkillsSection } from "./components/SkillsSection";
 //import  AIAssistant from "./components/AIAssistant";
 import AIAssistantWidget from "./components/AIAssistantWidget";
-import { Analytics } from "./components/Analytics";
 import { useEffect, useState } from "react";
 
 function App() {
