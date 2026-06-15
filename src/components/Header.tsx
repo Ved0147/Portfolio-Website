@@ -24,11 +24,11 @@ export function Header({ refreshAnalytics }: { refreshAnalytics: () => void }) {
 
   const handleResumeDownload = async () => {
     const response = await fetch(
-      "http://localhost:5133/api/resume"
+      "https://portfolio-api-58436098425.asia-south1.run.app/api/resume"
     );
     const data = await response.json();
     window.open(data.url, "_blank");
-    fetch("http://localhost:5133/api/resume/download",{ method: "POST" });
+    fetch("https://portfolio-api-58436098425.asia-south1.run.app/api/resume/download",{ method: "POST" });
     await refreshAnalytics();
   };
   return (
