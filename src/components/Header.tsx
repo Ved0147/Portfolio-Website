@@ -1,6 +1,7 @@
 import { Eye, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navigation } from "../data/portfolio";
+import { API_BASE_URL } from "../config/api";
 
 export function Header({ refreshAnalytics }: { refreshAnalytics: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,11 +25,11 @@ export function Header({ refreshAnalytics }: { refreshAnalytics: () => void }) {
 
   const handleResumeDownload = async () => {
     const response = await fetch(
-      "https://portfolio-api-58436098425.asia-south1.run.app/api/resume"
+      `${API_BASE_URL}/resume`
     );
     const data = await response.json();
     window.open(data.url, "_blank");
-    fetch("https://portfolio-api-58436098425.asia-south1.run.app/api/resume/download",{ method: "POST" });
+    fetch(`${API_BASE_URL}/resume/download`, { method: "POST" });
     await refreshAnalytics();
   };
   return (

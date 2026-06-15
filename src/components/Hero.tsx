@@ -1,6 +1,7 @@
 import { ArrowDown, Eye, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroWorkspace from "../assets/hero-workspace.webp";
+import { API_BASE_URL } from "../config/api";
 const metrics = [
   { value: "1.5+", label: "Years of experience" },
   { value: "ASP.NET", label: "Backend specialization" },
@@ -9,12 +10,12 @@ const metrics = [
 export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
   const handleResumeDownload = async () => {
   const response = await fetch(
-    "https://portfolio-api-349456946670.asia-south1.run.app/api/resume"
+    `${API_BASE_URL}/resume`
   );
   const data = await response.json();
 
   window.open(data.url, "_blank");
-  fetch("https://portfolio-api-349456946670.asia-south1.run.app/api/resume/download", { method: "POST" });
+  fetch(`${API_BASE_URL}/resume/download`, { method: "POST" });
   await refreshAnalytics();
 };
   return (

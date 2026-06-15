@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { API_BASE_URL } from "../config/api";
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -43,8 +44,7 @@ export default function AIAssistantWidget({ refreshAnalytics }: AIAssistantWidge
     setLoading(true);
 
     try {
-      const response = await fetch(
-        "https://portfolio-api-349456946670.asia-south1.run.app/api/ai",//58436098425
+      const response = await fetch(`${API_BASE_URL}/ai`,
         {
           method: "POST",
           headers: {

@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../config/api";
 interface ProjectSectionProps {
   analytics: {
     visitors: number;
@@ -24,7 +25,7 @@ export function ProjectSection({
 }: ProjectSectionProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
-    fetch("https://portfolio-api-349456946670.asia-south1.run.app/api/project")
+    fetch(`${API_BASE_URL}/project`)
     // fetch("http://localhost:5133/api/projects")
       .then(res => res.json())
       .then(data => setProjects(data));
