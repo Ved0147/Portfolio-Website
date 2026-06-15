@@ -25,7 +25,7 @@ export function ProjectSection({
 }: ProjectSectionProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
-    fetch(`${API_BASE_URL}/project`)
+    fetch(`${API_BASE_URL}/projects`)
     // fetch("http://localhost:5133/api/projects")
       .then(res => res.json())
       .then(data => setProjects(data));
