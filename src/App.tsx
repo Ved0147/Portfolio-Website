@@ -43,10 +43,6 @@ function App() {
     initialize();
   }, []);
 
-  useEffect(() => {
-    refreshAnalytics();
-  }, []);
-
   return (
     <>
       <Header />

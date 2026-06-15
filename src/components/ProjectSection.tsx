@@ -119,7 +119,7 @@ export function ProjectSection({
 
                 ): null
               }
-              <div
+              {/* <div
                 className="project-status"
                 role="status"
               >
@@ -140,7 +140,7 @@ export function ProjectSection({
                   ))
                 }
                 Github URL 
-              </div>
+              </div> */}
 
             </article>
           ))}
