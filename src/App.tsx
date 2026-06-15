@@ -33,9 +33,18 @@ function App() {
   };
   useEffect(() => {
     const initialize = async () => {
-      await fetch(
-        `${API_BASE_URL}/visitor`
-      );
+      const today = new Date().toISOString().split("T")[0];
+
+      const lastVisit =
+        localStorage.getItem("portfolio-last-visit");
+
+      if (lastVisit !== today) {
+        await fetch(`${API_BASE_URL}/visitor`);
+        localStorage.setItem(
+          "portfolio-last-visit",
+          today
+        );
+      }
 
       await refreshAnalytics();
     };
