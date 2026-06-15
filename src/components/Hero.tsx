@@ -4,7 +4,7 @@ import heroWorkspace from "../assets/hero-workspace.webp";
 const metrics = [
   { value: "1.5+", label: "Years of experience" },
   { value: "ASP.NET", label: "Backend specialization" },
-  { value: "PIM / MDM", label: "Enterprise data focus" },
+  { value: "Cloud & DevOps", label: "CI/CD & Automation" },
 ];
 export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
   const handleResumeDownload = async () => {
@@ -32,15 +32,14 @@ export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
         <div className="hero-copy">
           <p className="availability">
             <span aria-hidden="true" />
-            Open to backend and enterprise development opportunities.
+            Open to backend and cloud opportunities.
           </p>
           <p className="eyebrow">Software Developer · Surat, India</p>
           <h1 id="hero-title">
             Building dependable backend systems for <span>real business data.</span>
           </h1>
           <p className="hero-intro">
-            I’m Ved, a developer working across ASP.NET, REST APIs, SQL databases, and
-            enterprise PIM implementations. I turn complex requirements into maintainable,
+            I’m Ved, a developer working across ASP.NET, REST APIs, SQL databases,Google Cloud, and CI/CD practices. I turn complex requirements into maintainable,
             data-driven software.
           </p>
           <div className="hero-actions">
