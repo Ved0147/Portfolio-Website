@@ -9,12 +9,12 @@ const metrics = [
 export function Hero({ refreshAnalytics }: { refreshAnalytics: () => void }) {
   const handleResumeDownload = async () => {
   const response = await fetch(
-    "https://portfolio-api-58436098425.asia-south1.run.app/api/resume"
+    "https://storage.googleapis.com/ved-portfolio-prod/Ved_Vaiwala_Resume.pdf"
   );
   const data = await response.json();
 
   window.open(data.url, "_blank");
-  fetch("https://portfolio-api-58436098425.asia-south1.run.app/api/resume/download", { method: "POST" });
+  fetch("https://storage.googleapis.com/ved-portfolio-prod/Ved_Vaiwala_Resume.pdf/download", { method: "POST" });
   await refreshAnalytics();
 };
   return (
