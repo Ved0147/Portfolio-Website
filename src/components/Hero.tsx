@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import heroWorkspace from "../assets/hero-workspace.webp";
 import { API_BASE_URL } from "../config/api";
 const metrics = [
-  { value: "1.5+", label: "Years of experience" },
+  { value: "1+", label: "Years of experience" },
   { value: "ASP.NET", label: "Backend specialization" },
   { value: "Cloud & DevOps", label: "CI/CD & Automation" },
 ];
