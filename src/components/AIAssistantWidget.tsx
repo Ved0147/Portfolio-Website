@@ -48,7 +48,7 @@ export default function AIAssistantWidget() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/ai`,
+      const response = await fetch(`${API_BASE_URL}/ai/ask`,
         {
           method: "POST",
           headers: {
