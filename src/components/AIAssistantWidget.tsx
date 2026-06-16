@@ -22,7 +22,7 @@ export default function AIAssistantWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: "bot",
-      text: "Hi 👋 I'm Ved's AI Assistant. Ask me about skills, projects, experience or career goals."
+      text: "Hi 👋 I'm Ved's AI Assistant. Ask me about skills, projects, experience etc"
     }
   ]);
 
