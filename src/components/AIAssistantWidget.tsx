@@ -5,8 +5,14 @@ interface Message {
   sender: "user" | "bot";
   text: string;
 }
-
-export default function AIAssistantWidget (){
+const suggestedQuestions = [
+  "What technologies does Ved know?",
+  "Tell me about Ved's projects",
+  "What cloud experience does Ved have?",
+  "What AI projects has Ved built?",
+  "What companies has Ved worked for?"
+];
+export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
@@ -49,7 +55,8 @@ export default function AIAssistantWidget (){
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            question: userMessage
+            question: userMessage,
+            history: messages.slice(-10)
           })
         }
       );
@@ -118,6 +125,19 @@ export default function AIAssistantWidget (){
             </div>
             {/* Messages */}
             <div className="ai-chat-messages">
+              {messages.length === 1 && (
+                <div className="suggestions-container">
+                  {suggestedQuestions.map((question) => (
+                    <button
+                      key={question}
+                      className="suggestion-chip"
+                      onClick={() => setQuestion(question)}
+                    >
+                      {question}
+                    </button>
+                  ))}
+                </div>
+              )}  
               {messages.map((msg, index) => (
                 <motion.div
                   key={index}
