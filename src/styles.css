@@ -1593,3 +1593,15 @@ h3 {
   padding: 8px 12px;
   cursor: pointer;
 }
+.ai-chat-hint {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  max-width: 250px;
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  font-size: 14px;
+  z-index: 999;
+}

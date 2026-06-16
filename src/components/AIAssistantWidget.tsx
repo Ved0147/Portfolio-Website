@@ -23,7 +23,19 @@ export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowHint(true);
+  }, 3000);
+
+  return () => clearTimeout(timer);
+}, []);
+const toggleChat = () => {
+  setIsOpen(!isOpen);
+  setShowHint(false);
+};
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: "bot",
@@ -93,9 +105,21 @@ export default function AIAssistantWidget() {
 
   return (
     <>
+    <AnimatePresence>
+  {showHint && !isOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      className="ai-chat-hint"
+    >
+      🤖 Have questions about Ved? Try the AI Assistant →
+    </motion.div>
+  )}
+</AnimatePresence>
       {/* Floating Button */}
       <motion.button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleChat}
         className="ai-chat-trigger">
         💬
       </motion.button>
