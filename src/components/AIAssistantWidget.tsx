@@ -14,6 +14,11 @@ const suggestedQuestions = [
   "What AI projects has Ved built?",
   "What companies has Ved worked for?"
 ];
+function refreshAnalytics() {
+  fetch(`${API_BASE_URL}/ai/get-count`, {
+    method: "GET"
+  }).catch((err) => console.error("Failed to refresh analytics:", err));
+}
 export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [question, setQuestion] = useState("");
@@ -72,7 +77,7 @@ export default function AIAssistantWidget() {
           text: data.answer
         }
       ]);
-      // await refreshAnalytics();
+     await refreshAnalytics();
     } catch {
       setMessages((prev) => [
         ...prev,
