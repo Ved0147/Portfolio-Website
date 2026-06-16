@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { API_BASE_URL } from "../config/api";
+import ReactMarkdown from "react-markdown";
+
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -137,7 +139,7 @@ export default function AIAssistantWidget() {
                     </button>
                   ))}
                 </div>
-              )}  
+              )}
               {messages.map((msg, index) => (
                 <motion.div
                   key={index}
@@ -157,7 +159,9 @@ export default function AIAssistantWidget() {
                     : "bot-bubble"
                     }`}
                 >
-                  {msg.text}
+                  <ReactMarkdown>
+                    {msg.text}
+                  </ReactMarkdown>
                 </motion.div>
               ))}
               <div ref={messagesEndRef}></div>
