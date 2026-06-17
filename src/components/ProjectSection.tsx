@@ -45,7 +45,8 @@ export function ProjectSection({
 
         <div className="projects-grid">
 
-          {projects.map((project) => (
+         {projects.sort((a, b) => a.order - b.order)
+                  .map((project) => (
             <article
               className="project-card"
               key={project.title}
