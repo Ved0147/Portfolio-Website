@@ -72,18 +72,15 @@ function App() {
 
             <div className="about-copy">
               <p>
-                I’m a software developer with 1.5+ years of experience across backend development
-                and enterprise data solutions.
+               I’m a Software Developer with 1.5+ years of experience in backend development, enterprise data solutions, and web application development. I enjoy transforming business requirements into reliable technical solutions, including scalable applications, and maintainable system architectures.
               </p>
 
               <p>
-                I enjoy translating requirements into clear technical systems:
-                scalable MVC modules, validation rules, workflows, and interfaces that
-                teams can trust.
+               Alongside my backend development experience, I am actively expanding my expertise in Cloud Engineering, DevOps, and Generative AI through hands-on projects involving Google Cloud Platform, containerization, CI/CD automation, Retrieval-Augmented Generation (RAG), vector embeddings, LLM integrations, and AI-powered application development.
               </p>
-              <p>
+              {/* <p>
                 Alongside backend development, I'm actively building expertise in cloud technologies and DevOps through hands-on projects involving Google Cloud, containerization, CI/CD, and modern deployment practices
-              </p>
+              </p> */}
             </div>
 
           </div>
