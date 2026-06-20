@@ -43,7 +43,7 @@ export const experiences: Experience[] = [
       "Supported development work for Exxon Mobil's enterprise platform.",
       "Delivered maintainable MVC solutions in Agile teams through sprint reviews and code reviews.",
     ],
-    skills: ["ASP.NET", "C#", "MVC", "REST APIs", "Agile"],
+    skills: ["ASP.NET", "C#", "MVC", "REST APIs", "MySQL","Entity Framework", "Agile"],
   },
 ];
 
